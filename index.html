@@ -9,7 +9,12 @@
 <!--[if IE]>
 <script type="text/javascript" src="js/excanvas.js"></script>
 <![endif]-->
-<script type="text/javascript" src="js/canvaswater.js"></script>
+<script type="text/javascript" src="js/jquery.jwatersurface.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#canvaswater').jwatersurface({bgColor:"#000"});
+});
+</script>
 </head>
 <body>
 <div id="wrapper">

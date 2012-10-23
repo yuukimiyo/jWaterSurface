@@ -1,16 +1,16 @@
 /*
-* canvaswater.js 0.5 javascript library
-*
-* Copyright (c) 2012 Yuuki miyoshi
-* Licensed under the MIT License:
-* http://www.opensource.org/licenses/mit-license.php
-*
-* @author Yuuki miyoshi
-* @version 0.5
-* @url http://github.com/yuukimiyo/CanvasWater
-* @github http://github.com/yuukimiyo/CanvasWater
-*
-*/
+ * canvaswater.js 0.5 javascript library
+ *
+ * Copyright (c) 2012 Yuuki miyoshi
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * @author Yuuki miyoshi
+ * @version 0.5
+ * @url http://github.com/yuukimiyo/CanvasWater
+ * @github http://github.com/yuukimiyo/CanvasWater
+ *
+ */
 
 var BACKGROUND_COLOR = 'rgb(0, 77, 80)';
 var RING_COLOR = 'rgb(255, 255, 255)';
