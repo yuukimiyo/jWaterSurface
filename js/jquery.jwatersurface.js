@@ -20,8 +20,45 @@
 	var cm;
 	var am;
 
-	function testFunction() {
-		jQuery('#canvaswater').text("test").css({"background-color":"#a99","color":"#fff"});
+	jQuery.fn.jwatersurface = function(options) {
+		var options = jQuery.extend({
+			bgColor : "#a77",
+			wrapper : "wrapper"
+		}, options);
+
+		return this.each(function() {
+			cm = new CanvasManager();
+			am = new AnimationManager();
+
+			if (!document.getElementById('canvaswater')) { return false; }
+			if (!document.getElementById('wrapper')) { return false; }
+			
+			var canvas = document.getElementById('canvaswater');
+			if (!canvas.getContext) { return false; }
+			
+			cm.setContext(canvas.getContext('2d'));
+			cm.setOffsetLeft($("#canvaswater").offset()["left"]);
+			cm.setOffsetTop($("#canvaswater").offset()["top"]);
+			cm.setWidth($("#wrapper").width());
+			cm.setHeight($("#wrapper").height());
+
+			cm.drawBackground();
+			
+			$(window).resize(function() {
+				cm.setWidth($("#wrapper").width());
+				cm.setHeight($("#wrapper").height());
+				cm.drawBackground();
+			});
+			
+			$("#canvaswater").mousedown(function(e){
+				cm.setMouseX(Math.floor(e.pageX - cm.getOffsetLeft()));
+				cm.setMouseY(Math.floor(e.pageY - cm.getOffsetTop()));
+		
+				am.setCanvasManager(cm);
+				am.start();
+			});
+		
+		});
 	};
 
 	function AnimationManager() {
@@ -153,46 +190,5 @@
 			ctx.clearRect(offsetLeft, offsetTop, canvasWidth, canvasHeight);
 			this.drawBackground();
 		}
-	};
-	
-	jQuery.fn.jwatersurface = function(options) {
-		var options = jQuery.extend({
-			bgColor : "#a77",
-			wrapper : "wrapper"
-		}, options);
-
-		return this.each(function() {
-			cm = new CanvasManager();
-			am = new AnimationManager();
-
-			if (!document.getElementById('canvaswater')) { return false; }
-			if (!document.getElementById('wrapper')) { return false; }
-			
-			var canvas = document.getElementById('canvaswater');
-			if (!canvas.getContext) { return false; }
-			
-			cm.setContext(canvas.getContext('2d'));
-			cm.setOffsetLeft($("#canvaswater").offset()["left"]);
-			cm.setOffsetTop($("#canvaswater").offset()["top"]);
-			cm.setWidth($("#wrapper").width());
-			cm.setHeight($("#wrapper").height());
-
-			cm.drawBackground();
-			
-			$(window).resize(function() {
-				cm.setWidth($("#wrapper").width());
-				cm.setHeight($("#wrapper").height());
-				cm.drawBackground();
-			});
-			
-			$("#canvaswater").mousedown(function(e){
-				cm.setMouseX(Math.floor(e.pageX - cm.getOffsetLeft()));
-				cm.setMouseY(Math.floor(e.pageY - cm.getOffsetTop()));
-		
-				am.setCanvasManager(cm);
-				am.start();
-			});
-		
-		});
 	};
 })(jQuery);
