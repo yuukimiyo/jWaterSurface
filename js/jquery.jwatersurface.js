@@ -17,6 +17,7 @@
 	var BACKGROUND_COLOR = 'rgb(0, 77, 80)';
 	var RING_COLOR = 'rgb(255, 255, 255)';
 
+
 	var cm;
 	var am;
 
