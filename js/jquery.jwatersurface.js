@@ -1,5 +1,6 @@
 /*
  * jquery.jwatersurface.jp 0.5 jQuery plugin
+ * branch use argument classnames.
  *
  * Copyright (c) 2012 Yuuki miyoshi
  * Licensed under the MIT License:
