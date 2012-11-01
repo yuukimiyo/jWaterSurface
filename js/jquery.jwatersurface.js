@@ -26,7 +26,7 @@
 	var am;
 
 	/**
-	 * jWaterSurface‚ÌƒƒCƒ“ŠÖ”
+	 * jWaterSurfaceã®ãƒ¡ã‚¤ãƒ³é–¢æ•°
 	 */
 	jQuery.fn.jwatersurface = function(options) {
 		var options = jQuery.extend({
